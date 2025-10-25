@@ -252,6 +252,15 @@ async function handleTextEntryPlugin(
 	const githubLink =
 		`https://github.com/SomeRanDev/RPGMakerPlugins/blob/master/${entry.engine}/${scrapedData.filename}`;
 
+	let youtubeId = null;
+	if (scrapedData.youtubeUrl !== null) {
+		const re = /embed\/(.+)\?feature/;
+		const result = re.exec(scrapedData.youtubeUrl);
+		if (result) {
+			youtubeId = result[1];
+		}
+	}
+
 	const replacements: Record<string, string> = {
 		"PLUGIN_DOWNLOAD_CODE": entry.overrideDownloadUrl
 			? `window.open("${entry.overrideDownloadUrl}")`
@@ -288,6 +297,12 @@ async function handleTextEntryPlugin(
 		).join("\n"),
 		"PLUGIN_REPORT_BUG_LINK":
 			`https://github.com/SomeRanDev/RPGMakerPlugins/issues/new?template=bug.yaml&engine=%22RPG%20Maker%20${entry.engine.toUpperCase()}%22&plugin_name=${scrapedData.filename}`,
+		"PLUGIN_META_IMAGE": youtubeId !== null
+			? `<meta property="og:image" content="https://img.youtube.com/vi/${youtubeId}/0.jpg">`
+			: "",
+		"PLUGIN_META_IMAGE_TWITTER": youtubeId !== null
+			? `<meta property="twitter:image" content="https://img.youtube.com/vi/${youtubeId}/0.jpg">`
+			: "",
 	};
 
 	let html = pluginTemplateHtml;
