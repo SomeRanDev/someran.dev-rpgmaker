@@ -1,0 +1,66 @@
+.tabs
+	background: transparent
+
+.tablist
+	display: flex
+	flex-wrap: wrap
+	gap: 24px
+	justify-content: space-evenly
+
+	.tab
+		--color1: rgba(255, 255, 255, 0.05)
+		background: var(--glass)
+		color: var(--lighter-font-color)
+		border: 1px solid rgba(255, 255, 255, 0.03)
+		padding: 8px 12px
+		border-radius: 10px
+		cursor: pointer
+		font-weight: 600
+		font-size: 0.95rem
+		flex-grow: 1
+		position: relative
+
+		transition: color 0.1s ease, transform 0.1s ease
+
+		&::before
+			content: ' '
+			position: absolute
+			inset: 0
+			border-radius: inherit
+			background: linear-gradient(180deg, rgba(237, 58, 207, 0.3), rgba(237, 58, 73, 0.2))
+			opacity: 0
+			z-index: 0
+			transition: opacity 0.2s ease
+
+		&[data-selected="true"]::before
+			opacity: 1
+
+		&:hover
+			transform: translateY(-2px) scale(1.02)
+	
+		&:active
+			transform: translateY(1px) scale(0.97)
+			transition-duration: 0s
+
+		&[data-selected="true"]
+			color: #fff
+
+.panels
+	margin-top: 12px
+	min-height: 120px
+
+.panel
+	display: none
+	animation: fadeIn 0.18s ease
+
+	&[data-visible="true"]
+		display: block
+
+@keyframes fadeIn
+	from
+		opacity: 0
+		transform: translateY(6px)
+
+	to
+		opacity: 1
+		transform: translateY(0)

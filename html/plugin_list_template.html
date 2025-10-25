@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>RPG Maker PLUGIN_ENGINE Plugins</title>
+
+	<link href="../../css/style.css" rel="stylesheet" />
+	<link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+	<link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+
+	<!-- Embed metadata -->
+	<meta property="og:title" content="SRD's RPG Maker PLUGIN_ENGINE Plugins">
+	<meta property="og:description" content="A list of all of my RPG Maker PLUGIN_ENGINE plugins.">
+	<meta property="og:image" content="https://example.com/preview.png">
+	<meta property="og:url" content="https://someran.dev/rpgmaker/plugins/PLUGIN_ENGINE/PLUGIN_FILENAME">
+	<meta property="og:type" content="website">
+	<meta name="theme-color" content="#5865F2">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="SRD's RPG Maker PLUGIN_ENGINE Plugins">
+	<meta name="twitter:description" content="A list of all of my RPG Maker PLUGIN_ENGINE plugins.">
+	<meta name="twitter:image" content="https://example.com/preview.png">
+	<meta name="twitter:creator" content="@SomeRanDev">
+</head>
+<body>
+	<div class="page plugin-list">
+		<h2>Full RPG Maker PLUGIN_ENGINE Plugin List!</h2>
+		PLUGINS
+	</div>
+
+<script>
+	document.querySelectorAll('ul.pretty-list .item').forEach(btn => {
+		btn.addEventListener('click', function (ev) {
+			const rect = this.getBoundingClientRect();
+			const ripple = document.createElement('span');
+			ripple.className = 'ripple';
+			const size = Math.max(rect.width, rect.height);
+			ripple.style.width = ripple.style.height = size + 'px';
+			ripple.style.left = (ev.clientX - rect.left - size/2) + 'px';
+			ripple.style.top	= (ev.clientY - rect.top - size/2) + 'px';
+			this.appendChild(ripple);
+			ripple.addEventListener('animationend', () => ripple.remove());
+
+			const id = this.getAttribute('data-id');
+			if(id) {
+				window.open(id, "_self");
+			}
+		});
+	});
+</script>
+</body>
+</html>

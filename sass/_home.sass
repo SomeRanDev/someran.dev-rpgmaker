@@ -1,0 +1,271 @@
+
+\:root
+	--sat: 80%
+	--light: 40%
+	
+.home-page
+	display: flex
+	justify-content: center
+	align-items: center
+	padding-bottom: 64px
+
+	.container
+		text-align: center
+		max-width: 650px
+		padding: 20px
+
+	img.logo
+		max-width: 240px
+		margin-bottom: 25px
+
+	h2
+		margin: 28px 0 10px
+		font-weight: 500
+		opacity: 0.85
+
+	.button-collection
+		display: flex
+		justify-content: center
+		margin: 10px 0
+
+	.engine-button
+		padding: 14px 22px
+		font-weight: bold
+		font-size: 1rem
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 12px
+		border: none
+		cursor: pointer
+		position: relative
+		overflow: hidden
+		color: #fff
+		transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out
+
+	#button-mv
+		border-radius: 10px 0 0 10px
+		background: linear-gradient(135deg, #007b3a, #00ff73)
+		box-shadow: 0 0 12px rgba(0, 255, 115, 0.4)
+
+	#button-mz
+		border-radius: 0 10px 10px 0
+		background: linear-gradient(135deg, #005d9e, #2bb7ff)
+		box-shadow: 0 0 12px rgba(43, 183, 255, 0.4)
+
+	#button-mv:hover
+		transform: translateX(-6px) scaleX(1.06)
+		filter: brightness(1.2)
+
+	#button-mz:hover
+		transform: translateX(6px) scaleX(1.06)
+		filter: brightness(1.2)
+
+	#button-mv:hover i
+		transform: translateX(-6px)
+		transition: 0.12s
+
+	#button-mz:hover i
+		transform: translateX(6px)
+		transition: 0.12s
+
+	#button-mv:active, #button-mz:active
+		transform: scale(0.98)
+		filter: brightness(0.8)
+
+	.engine-button
+		&:active
+			transform: scale(0.94)
+			box-shadow: 0 0 4px rgba(255, 255, 255, 0.3) inset
+			filter: brightness(0.9)
+
+		&::after
+			content: ""
+			position: absolute
+			top: 0
+			width: 4px
+			height: 100%
+			opacity: 0
+			background: white
+
+	#button-mv:hover::after
+		left: 0
+		animation: pixelBlink 0.12s steps(1) forwards
+
+	#button-mz:hover::after
+		right: 0
+		animation: pixelBlink 0.12s steps(1) forwards
+
+	@keyframes pixelBlink
+		0%
+			opacity: 1
+
+		50%
+			opacity: 0
+
+		100%
+			opacity: 0
+
+	.button-containers
+		display: flex
+		flex-direction: column
+		gap: 64px
+
+	.button-group
+		position: relative
+		border: solid 1px rgba(255, 255, 255, 1)
+		border-radius: 12px
+		padding: 18px 24px
+		display: flex
+		flex-direction: column
+		gap: 1px
+		background: #0f0e0e
+		background: linear-gradient(0deg, rgba(15, 14, 14, 1) 0%, rgba(43, 39, 39, 1) 100%)
+		box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px
+
+	.button-containers h4
+		position: absolute
+		margin: 0
+		left: 0
+		top: 0
+		transform: translateY(-32px) translateX(-48px) rotateZ(-12deg)
+		padding: 12px 20px
+		border-radius: 12px
+		font-family: 'Barriecito', cursive
+		font-size: 1.3rem
+		color: #fff
+		background: linear-gradient(135deg, #ff4d6d, #ffb347)
+		border: 2px solid rgba(255, 255, 255, 0.2)
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 77, 109, 0.4), 0 0 12px rgba(255, 179, 71, 0.3)
+		transition: all 100ms ease-in-out
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
+		cursor: default
+
+	.button-collection a
+		background: rgba(255, 255, 255, 0.05)
+		border: 1px solid rgba(255, 255, 255, 0.1)
+		color: #fff
+		padding: 12px 18px
+		font-size: 1rem
+		cursor: pointer
+		transition: 100ms ease-in-out
+		text-decoration: none
+		display: flex
+		align-items: center
+		gap: 8px
+
+		&:not(.engine-button)
+			background: rgba(255, 255, 255, 0.05)
+			border: 1px solid rgba(255, 255, 255, 0.1)
+			color: #fff
+			padding: 12px 18px
+			font-size: 1rem
+			cursor: pointer
+			transition: 100ms ease-in-out
+			text-decoration: none
+			display: flex
+			align-items: center
+			gap: 8px
+
+		&:not(:first-child), &:not(.engine-button):not(:first-child)
+			border-left: none
+
+		&:first-child, &:not(.engine-button):first-child
+			border-radius: 10px 0 0 10px
+
+		&:last-child, &:not(.engine-button):last-child
+			border-radius: 0 10px 10px 0
+
+		&:hover, &:not(.engine-button):hover
+			background: rgba(255, 255, 255, 0.12)
+			transform: translateY(-2px)
+			box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08)
+
+		&:active, &:not(.engine-button):active
+			background: rgba(255, 255, 255, 0.12)
+			transform: translateY(1px) scale(0.98)
+			box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08)
+			transition: 0.05s linear
+
+	.desktop-only
+		display: flex
+
+	.mobile-only
+		display: none
+
+	@media (max-width: 600px)
+		.button-collection
+			flex-direction: column
+			align-items: stretch
+
+		.desktop-only
+			display: none
+
+		.mobile-only
+			display: flex
+
+		.button-collection a
+			&:first-child, &:not(.engine-button):first-child
+				border-radius: 10px 10px 0 0
+
+			&:last-child, &:not(.engine-button):last-child
+				border-radius: 0 0 10px 10px
+
+			&:not(:first-child), &:not(.engine-button):not(:first-child)
+				border-left: 1px solid rgba(255, 255, 255, 0.1)
+				border-top: none
+
+		#button-mv
+			border-radius: 10px 10px 0 0
+
+		#button-mz
+			border-radius: 0 0 10px 10px
+
+		#button-mv:hover, #button-mz:hover
+			transform: translateY(-6px) scaleY(1.06)
+
+	.button-group
+		box-shadow: hsla(0, var(--sat), var(--light), 0.6) 0px 0px, hsla(0, var(--sat), var(--light), 0.5) 5px 5px, hsla(0, var(--sat), var(--light), 0.4) 10px 10px, hsla(0, var(--sat), var(--light), 0.3) 15px 15px, hsla(0, var(--sat), var(--light), 0.2) 20px 20px,	hsla(0, var(--sat), var(--light), 0.1) 25px 25px
+		animation: moveShadow 1s linear infinite
+
+	@keyframes moveShadow
+		0%
+			box-shadow: hsla(0, var(--sat), var(--light), 0.6) 0px 0px, hsla(0, var(--sat), var(--light), 0.5) 5px 5px, hsla(72, var(--sat), var(--light), 0.4) 10px 10px, hsla(144, var(--sat), var(--light), 0.3) 15px 15px, hsla(216, var(--sat), var(--light), 0.2) 20px 20px, hsla(288, var(--sat), var(--light), 0.1) 25px 25px
+
+		100%
+			box-shadow: hsl(0, var(--sat), var(--light), 0.5) 5px 5px, hsla(72, var(--sat), var(--light), 0.4) 10px 10px, hsla(144, var(--sat), var(--light), 0.3) 15px 15px, hsla(216, var(--sat), var(--light), 0.2) 20px 20px, hsla(288, var(--sat), var(--light), 0.1) 25px 25px, hsla(360, var(--sat), var(--light), 0) 30px 30px
+
+	.bottom
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		align-items: center
+		width: 100%
+		gap: 32px
+
+	.bottom-text
+		font-size: 0.8rem !important
+		flex-grow: 0
+	
+	.space
+		flex-grow: 1
+	
+img.header-img
+	max-width: 100%
+	max-height: 100%
+
+div.button-container-horizontal
+	display: flex
+	flex-direction: row
+	gap: 24px
+
+.home-desc
+	font-family: 'Barriecito', cursive
+	text-align: center
+	margin-bottom: 40px
+
+	h1
+		font-size: 2rem
+
+	a
+		font-size: 1.1rem

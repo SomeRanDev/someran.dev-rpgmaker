@@ -1,0 +1,220 @@
+<!--
+The template for a page that provides an RPG Maker plugin.
+
+When generating the page, these keys need to be replaced via string replacement:
+	* PLUGIN_NAME
+	* PLUGIN_RELEASE_DATE
+	* PLUGIN_ENGINE
+	* PLUGIN_DESCRIPTION
+	* PLUGIN_YOUTUBE
+	* PLUGIN_VERSION
+	* PLUGIN_FILENAME
+	* PLUGIN_GITHUB_LINK
+		This should be a link to the file on https://github.com (NOT https://raw.githubusercontent.com)
+	* REQUIRES_PLUGIN
+		This should be valid HTML that matches an element in .meta-list
+	* PLUGIN_SCREENSHOTS
+		This should be valid HTML that's a list of <img> elements like this:
+		<img src="URL_TO_PLUGIN_SCREENSHOT" alt="Screenshot X" />
+	* PLUGIN_HELP
+	* PLUGIN_PARAMS
+	* PLUGIN_CODE
+	* PLUGIN_TAGS
+		This should be valid HTML that is a list of elements like this:
+		<a class="button-like tag" href="TODO">Example Tag</a>
+	* PLUGIN_REPORT_BUG_LINK
+		Usually it should be this link with PLUGIN_FILENAME and PLUGIN_ENGINE filled out:
+		https://github.com/SomeRanDev/RPGMakerPlugins/issues/new?template=bug.yaml&engine=%22RPG%20Maker%20PLUGIN_ENGINE%22&plugin_name=PLUGIN_FILENAME_HERE
+-->
+<!doctype html>
+<html lang="en">
+	<base href="/" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>RPG Maker Plugins - SomeRanDev</title>
+
+		<link href="../../../css/style.css" rel="stylesheet" />
+		<link rel="icon" type="image/x-icon" href="../../../img/favicon.ico">
+
+		<!-- highlight.js-->
+		<link rel="stylesheet" href="https://unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-mocha.css">
+
+		<!-- Google font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- font-awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+		<!-- Embed metadata -->
+		<meta property="og:title" content="PLUGIN_NAME">
+		<meta property="og:description" content="PLUGIN_DESCRIPTION">
+		<meta property="og:image" content="https://example.com/preview.png">
+		<meta property="og:url" content="https://someran.dev/rpgmaker/plugins/PLUGIN_ENGINE/PLUGIN_FILENAME">
+		<meta property="og:type" content="website">
+		<meta name="theme-color" content="#5865F2">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="PLUGIN_NAME">
+		<meta name="twitter:description" content="PLUGIN_DESCRIPTION">
+		<meta name="twitter:image" content="https://example.com/preview.png">
+		<meta name="twitter:creator" content="@SomeRanDev">
+	</head>
+	<body>
+		<main class="page" id="page">
+			<header class="top" role="banner">
+				<div class="title">
+					<h1 id="post-title">PLUGIN_NAME</h1>
+					<div class="header-meta">
+						<span class="posted">Posted</span>
+						<span class="posted-date">PLUGIN_RELEASE_DATE</span>
+					</div>
+				</div>
+
+				<div style="text-align: right">
+					<div class="header-meta">PLUGIN_ENGINE Plugin</div>
+					<div style="margin-top: 6px">
+						PLUGIN_TAGS
+					</div>
+				</div>
+			</header>
+
+			<div class="main-grid">
+				<section class="video-card">
+					PLUGIN_YOUTUBE
+
+					<p class="short-desc" id="short-desc">
+						PLUGIN_DESCRIPTION
+					</p>
+				</section>
+
+				<aside class="sidebar">
+					<div>
+						<h3
+							id="sidebar-title"
+							style="margin: 0 0 8px 0; font-size: 1.05rem"
+						>
+							Plugin Info
+						</h3>
+
+						<div class="meta-list">
+							<div class="meta-item">
+								<strong>Author:</strong> SomeRanDev
+							</div>
+							<div class="meta-item">
+								<strong>Version:</strong> PLUGIN_VERSION
+							</div>
+							<div class="meta-item">
+								<strong>Engine:</strong> PLUGIN_ENGINE
+							</div>
+							REQUIRES_PLUGIN
+						</div>
+					</div>
+
+					<hr/>
+
+					<div class="sidebar-buttons">
+						<button class="button-like download rainbow" onclick='PLUGIN_DOWNLOAD_CODE'>Download <b>PLUGIN_FILENAME</b></button>
+						<hr/>
+						<div class="other-buttons">
+							<a class="button-like download with-icon github" href="PLUGIN_GITHUB_LINK"><i class="fa-brands fa-github"></i>View Code on Github</a>
+							<div class="side-by-side">
+								<a class="button-like download left with-icon terms" href="../../../terms"><i class="fa-solid fa-file-contract"></i>Terms of Use</a>
+								<a class="button-like download right with-icon bug" href="PLUGIN_REPORT_BUG_LINK">Report Bug<i class="fa-solid fa-bug"></i></a>
+							</div>
+						</div>
+					</div>
+				</aside>
+			</div>
+
+			<div class="tabs" id="tabs">
+				<div class="tablist" role="tablist">
+					<button class="tab" role="tab" id="tab-screens" data-selected="true" data-controls="panel-screens">
+						Screenshots
+					</button>
+					<button class="tab" role="tab" id="tab-desc" data-controls="panel-desc">
+						HELP Section
+					</button>
+					<button class="tab" role="tab" id="tab-params" data-controls="panel-params">
+						Plugin Parameters
+					</button>
+					<button class="tab" role="tab" id="tab-code" data-controls="panel-code">
+						Plugin Code
+					</button>
+				</div>
+
+				<div class="panels">
+					<div
+						id="panel-screens"
+						class="panel"
+						role="tabpanel"
+						data-visible="true"
+					>
+						<div class="gallery" id="gallery">
+							PLUGIN_SCREENSHOTS
+						</div>
+					</div>
+
+					<div
+						id="panel-desc"
+						class="panel"
+						role="tabpanel"
+						data-visible="false"
+					>
+						<div
+							style="color: var(--muted); line-height: 1.6; overflow: auto;"
+						>
+							<pre class="code-holder"><code>PLUGIN_HELP</code></pre>
+						</div>
+					</div>
+
+					<div
+						id="panel-params"
+						class="panel"
+						role="tabpanel"
+						data-visible="false"
+					>
+						<div class="plugin-params-holder">
+							<ul class="pretty-list" role="list">
+								PLUGIN_PARAMS
+							</ul>
+						</div>
+					</div>
+
+					<div
+						id="panel-code"
+						class="panel"
+						role="tabpanel"
+						data-visible="false"
+					>
+						<div
+							style="color: var(--muted); line-height: 1.6; overflow: auto;"
+						>
+							PLUGIN_CODE
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div
+				id="screenshots"
+				class="screenshots"
+				role="dialog"
+			>
+				<button
+					class="close-btn"
+					id="screenshot-close"
+				>
+					&times;
+				</button>
+				<img id="current-screenshot" alt="Expanded Screenshot" />
+			</div>
+		</main>
+
+		<script src="../index.js" type="module"></script>
+	</body>
+</html>

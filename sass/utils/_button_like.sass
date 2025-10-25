@@ -1,0 +1,97 @@
+
+.button-like
+	display: inline-block
+	border-radius: 10px
+	color: #fff
+	text-decoration: none
+	text-align: center
+	border: 0
+	cursor: pointer
+
+	transition: color 0.1s ease, transform 0.1s ease
+
+	&:hover
+		transform: translateY(0px) scale(1.02)
+
+	&:active
+		transform: translateY(1px) scale(0.97)
+		transition-duration: 0s
+
+	&.tag
+		padding: 4px 8px
+		font-size: 0.75em
+		background: linear-gradient(90deg, rgb(143, 83, 81), rgb(112, 88, 56))
+		box-shadow: 0 6px 20px rgba(222, 58, 237, 0.16)
+
+	&.download
+		padding: 10px 14px
+		font-size: 0.8em
+		box-shadow: 0 6px 20px rgba(237, 58, 198, 0.16)
+
+		&.left
+			border-top-right-radius: 0
+			border-bottom-right-radius: 0
+		
+		&.right
+			border-top-left-radius: 0
+			border-bottom-left-radius: 0
+		
+		&.github
+			background: linear-gradient(90deg, var(--accent), rgb(77, 113, 161))
+		
+		&.terms
+			background: linear-gradient(90deg, rgb(77, 161, 95), rgb(104, 161, 77))
+		
+		&.bug
+			background: linear-gradient(90deg, rgb(161, 104, 77), rgb(161, 77, 77))
+
+	&.with-icon
+		display: flex
+		flex-direction: row
+		justify-content: center
+		align-items: center
+		gap: 12px
+
+		i
+			display: flex
+			align-content: center
+
+	&.link
+		padding: 10px 14px
+		font-size: 0.8em
+		background: linear-gradient(90deg, var(--accent), rgb(182, 33, 145))
+		box-shadow: 0 6px 20px #ed3ad529
+
+	&.rainbow
+		text-shadow: 0 0 4px black
+		--vibrance: 30%
+		--lightness: 70%
+		animation: hue-shift 0.2s linear infinite
+		background: linear-gradient(
+			45deg in oklch longer hue,
+			oklch(var(--lightness) var(--vibrance) calc(var(--hue) * 1deg)) 0%,
+			oklch(var(--lightness) var(--vibrance) calc((var(--hue) + 120) * 1deg)) 50%,
+			oklch(var(--lightness) var(--vibrance) calc((var(--hue) + 240) * 1deg)) 100%
+		)
+		animation: hue-shift 3s linear infinite, scroll 3s linear infinite
+		box-shadow: 0 0 20px oklch(var(--lightness) var(--vibrance) calc(var(--hue) * 1deg) / 0.9), 0 0 40px oklch(var(--lightness) var(--vibrance) calc((var(--hue) + 120) * 1deg) / 0.7), 0 0 60px oklch(var(--lightness) var(--vibrance) calc((var(--hue) + 240) * 1deg) / 0.5)
+
+@property --hue
+	syntax: '<number>'
+	inherits: false
+	initial-value: 0
+
+@keyframes hue-shift
+	to
+		--hue:360
+
+@keyframes scroll
+	to
+		background-position: 0 100%
+
+
+@media (max-width: 600px)
+	.button-like
+		&.tag
+			padding: 4px 4px
+			font-size: 0.6em

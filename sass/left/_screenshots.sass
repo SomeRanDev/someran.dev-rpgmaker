@@ -1,0 +1,55 @@
+.gallery
+	display: flex
+	flex-wrap: wrap
+	gap: 32px
+	margin-top: 32px
+
+	img
+		width: auto
+		height: auto
+		max-height: 30vh
+		display: block
+		border-radius: 8px
+		cursor: pointer
+		border: 1px solid rgba(255, 255, 255, 0.03)
+		object-fit: scale-down
+		box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6)
+
+@media (max-width: 980px)
+	.gallery
+		img
+			max-height: 20vh
+
+.screenshots
+	position: fixed
+	inset: 0
+	display: flex
+	align-items: center
+	justify-content: center
+	background: rgba(5, 8, 15, 0.7)
+	z-index: 9999
+	padding: 20px
+	backdrop-filter: blur(6px)
+	visibility: hidden
+	opacity: 0
+	transition: opacity 0.18s ease, visibility 0.18s
+
+	&.open
+		visibility: visible
+		opacity: 1
+
+	img
+		max-width: calc(100% - 40px)
+		max-height: calc(100% - 80px)
+		border-radius: 10px
+		box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6)
+
+.close-btn
+	position: absolute
+	top: 22px
+	right: 24px
+	background: transparent
+	color: #fff
+	border: 0
+	font-size: 1.5rem
+	cursor: pointer

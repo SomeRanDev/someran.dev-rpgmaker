@@ -1,0 +1,21 @@
+{
+	"name": "somerandev_rpgmaker_website",
+	"author": "Maybee Rezbit (SomeRanDev)",
+	"version": "1.0.0",
+	"devDependencies": {
+		"sass": "^1.93.2",
+		"terser-webpack-plugin": "^5.3.14",
+		"ts-loader": "^9.5.4",
+		"typescript": "^5.9.3",
+		"webpack": "^5.102.1",
+		"webpack-cli": "^6.0.1"
+	},
+	"scripts": {
+		"start": "deno run build_scss && deno run webpack && deno run build_script",
+		"build_script": "deno run --node-modules-dir --allow-read --allow-write --allow-net tools/Build.ts old_site_data/OldSiteData.json html/plugin_template.html html/plugin_list_template.html public/plugins/",
+		"scrape": "deno run --node-modules-dir --allow-read --allow-env --allow-net --allow-write tools/OldSiteDataReader.ts ./old_site_data/OldSiteData.json  ./old_site_data/MVPlugins.txt ./old_site_data/MVPluginsUnsupported.txt ./old_site_data/MZPlugins.txt",
+		"webpack": "webpack",
+		"build_scss": "sass sass:public/css",
+		"watch_scss": "sass --watch sass:public/css"
+	}
+}
