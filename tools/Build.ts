@@ -307,7 +307,7 @@ async function handleTextEntryPlugin(
 
 	let html = pluginTemplateHtml;
 	for (const [key, value] of Object.entries(replacements)) {
-		html = html.replaceAll(key, value);
+		html = html.replaceAll(new RegExp(`\\b${key}\\b`, "g"), value);
 	}
 
 	Deno.writeTextFile(
