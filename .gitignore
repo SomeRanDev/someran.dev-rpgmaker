@@ -1,4 +1,5 @@
 build/
+redirects/
 node_modules/
 public/css/
 public/plugins/

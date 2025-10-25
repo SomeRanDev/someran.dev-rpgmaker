@@ -16,6 +16,7 @@
 		"scrape": "deno run --node-modules-dir --allow-read --allow-env --allow-net --allow-write tools/OldSiteDataReader.ts ./old_site_data/OldSiteData.json  ./old_site_data/MVPlugins.txt ./old_site_data/MVPluginsUnsupported.txt ./old_site_data/MZPlugins.txt",
 		"webpack": "webpack",
 		"build_scss": "sass sass:public/css",
-		"watch_scss": "sass --watch sass:public/css"
+		"watch_scss": "sass --watch sass:public/css",
+		"generate_redirects": "deno run --allow-read --allow-write tools/GenerateRedirects.ts old_site_data/OldSiteData.json ./redirects"
 	}
 }

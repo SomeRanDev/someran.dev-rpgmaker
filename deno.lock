@@ -1,7 +1,9 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/fs@*": "1.0.19",
     "jsr:@std/internal@^1.0.10": "1.0.12",
+    "jsr:@std/path@*": "1.1.2",
     "jsr:@std/path@1.1.2": "1.1.2",
     "npm:axios@^1.12.2": "1.12.2",
     "npm:cheerio@^1.1.2": "1.1.2",
@@ -14,6 +16,9 @@
     "npm:webpack@^5.102.1": "5.102.1_acorn@8.15.0"
   },
   "jsr": {
+    "@std/fs@1.0.19": {
+      "integrity": "051968c2b1eae4d2ea9f79a08a3845740ef6af10356aff43d3e2ef11ed09fb06"
+    },
     "@std/internal@1.0.12": {
       "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
     },
