@@ -10,7 +10,6 @@ import { exists } from "jsr:@std/fs/exists";
 import { join } from "jsr:@std/path";
 import {
 	isEntryPlugin,
-	isEntryPluginDirectDownload,
 	type TextEntry,
 } from "./transfer/OldSiteDataTypes.ts";
 
