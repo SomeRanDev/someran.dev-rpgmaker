@@ -284,7 +284,7 @@ async function handleTextEntryPlugin(
 		"PLUGIN_HELP": defaultData.help.replaceAll("\n", "<br>"),
 		"PLUGIN_GITHUB_LINK": githubLink,
 		"PLUGIN_TAGS": scrapedData.tags.map((tag) =>
-			`<a class="button-like tag" href="TODO">${tag}</a>`
+			`<a class="button-like tag">${tag}</a>` // TOOD: Add href="./tag-page" for tags...
 		).join("\n"),
 		"PLUGIN_REPORT_BUG_LINK":
 			`https://github.com/SomeRanDev/RPGMakerPlugins/issues/new?template=bug.yaml&engine=%22RPG%20Maker%20${entry.engine.toUpperCase()}%22&plugin_name=${scrapedData.filename}`,
