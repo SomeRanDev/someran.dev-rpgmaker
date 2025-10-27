@@ -14,9 +14,7 @@ import {
 	type TextEntryCategory,
 	TextEntryKind,
 	type TextEntryPlugin,
-	type TextEntryPluginDirectDownload,
 } from "./transfer/OldSiteDataTypes.ts";
-import { ScrapeResult } from "./transfer/SinglePageScraper.ts";
 import {
 	parseHeaders,
 	type ParseHeadersResult,
@@ -167,9 +165,26 @@ async function handleTextEntryPlugin(
 	>,
 	engine: { engine: string },
 ): Promise<boolean> {
-	const scrapedData = entry.scrapedData;
-	if (!scrapedData) {
-		console.warn(`${entry.name} scraped data does not exist!`);
+	let pluginData = null;
+	if (entry.pluginData) {
+		pluginData = entry.pluginData;
+	} else {
+		const scrapedData = entry.scrapedData;
+		if (scrapedData) {
+			pluginData = {
+				title: scrapedData.title,
+				youtubeUrl: scrapedData.youtubeUrl,
+				date: scrapedData.date,
+				tags: scrapedData.tags,
+				categories: scrapedData.categories,
+				description: scrapedData.description,
+				filename: scrapedData.filename,
+			};
+		}
+	}
+
+	if (!pluginData) {
+		console.warn(`${entry.name} scraped and plugin data does not exist!`);
 		return false;
 	}
 
@@ -178,19 +193,27 @@ async function handleTextEntryPlugin(
 	const folder = join(
 		outputHtmlPath,
 		entry.engine,
-		scrapedData.filename.replace(":", ""),
+		pluginData.filename.replace(":", ""),
 	);
 	await Deno.mkdir(folder, { recursive: true });
 
-	const getPluginDataResult = await getPluginData(entry, scrapedData);
+	const getPluginDataResult = await getPluginData(
+		entry,
+		pluginData.filename,
+		entry.scrapedData?.downloadUrl ??
+			`https://raw.githubusercontent.com/SomeRanDev/RPGMakerPlugins/refs/heads/master/${entry.engine}/${pluginData.filename}`,
+	);
 	if (getPluginDataResult === null) {
+		console.error(
+			`Could not download and parse plugin header for ${pluginData.filename}.`,
+		);
 		return false;
 	}
-	const [pluginData, pluginCode] = getPluginDataResult;
+	const [pluginHeaderData, pluginCode] = getPluginDataResult;
 
-	const pluginName = scrapedData.filename || `"${entry.name}"`;
+	const pluginName = pluginData.filename || `"${entry.name}"`;
 
-	const defaultData = pluginData.data["default"];
+	const defaultData = pluginHeaderData.data["default"];
 	if (!defaultData) {
 		console.error(
 			`${pluginName} does not have a default header.`,
@@ -226,16 +249,22 @@ async function handleTextEntryPlugin(
 	}
 
 	const category = categories.at(categories.length - 1);
-	if (!category) return false;
+	if (!category) {
+		console.error(
+			`Could not get category for ${pluginData.filename}? This should not be possible and is a logic error.`,
+		);
+		return false;
+	}
 
+	console.log(pluginData.filename);
 	category.entries.push(
 		generatePrettyListEntry(
-			scrapedData.filename,
+			pluginData.filename,
 			null,
 			entry.name,
-			scrapedData.description,
+			pluginData.description,
 			versionString,
-			scrapedData.date,
+			pluginData.date,
 		),
 	);
 
@@ -250,12 +279,12 @@ async function handleTextEntryPlugin(
 			.value;
 
 	const githubLink =
-		`https://github.com/SomeRanDev/RPGMakerPlugins/blob/master/${entry.engine}/${scrapedData.filename}`;
+		`https://github.com/SomeRanDev/RPGMakerPlugins/blob/master/${entry.engine}/${pluginData.filename}`;
 
 	let youtubeId = null;
-	if (scrapedData.youtubeUrl !== null) {
+	if (pluginData.youtubeUrl !== null) {
 		const re = /embed\/(.+)\?feature/;
-		const result = re.exec(scrapedData.youtubeUrl);
+		const result = re.exec(pluginData.youtubeUrl);
 		if (result) {
 			youtubeId = result[1];
 		}
@@ -264,16 +293,16 @@ async function handleTextEntryPlugin(
 	const replacements: Record<string, string> = {
 		"PLUGIN_DOWNLOAD_CODE": entry.overrideDownloadUrl
 			? `window.open("${entry.overrideDownloadUrl}")`
-			: `downloadGithubLink("${githubLink}", "${scrapedData.filename}")`,
+			: `downloadGithubLink("${githubLink}", "${pluginData.filename}")`,
 		"PLUGIN_NAME": entry.name,
-		"PLUGIN_RELEASE_DATE": scrapedData.date,
+		"PLUGIN_RELEASE_DATE": pluginData.date,
 		"PLUGIN_ENGINE": "RPG Maker " + entry.engine.toUpperCase(),
-		"PLUGIN_DESCRIPTION": scrapedData.description.replaceAll("\n", "<br>"),
-		"PLUGIN_YOUTUBE": scrapedData.youtubeUrl !== null
-			? generateYouTubeHTML(scrapedData.youtubeUrl)
+		"PLUGIN_DESCRIPTION": pluginData.description.replaceAll("\n", "<br>"),
+		"PLUGIN_YOUTUBE": pluginData.youtubeUrl !== null
+			? generateYouTubeHTML(pluginData.youtubeUrl)
 			: "",
 		"PLUGIN_VERSION": versionString,
-		"PLUGIN_FILENAME": scrapedData.filename,
+		"PLUGIN_FILENAME": pluginData.filename,
 		"PLUGIN_SCREENSHOTS": entry.screenshots.map((s, i) =>
 			`<img src="${s}" alt=${entry.name.replace(/\s+/g, "") + i} />`
 		).join("\n"),
@@ -292,11 +321,11 @@ async function handleTextEntryPlugin(
 		}).join("\n"),
 		"PLUGIN_HELP": defaultData.help.replaceAll("\n", "<br>"),
 		"PLUGIN_GITHUB_LINK": githubLink,
-		"PLUGIN_TAGS": scrapedData.tags.map((tag) =>
+		"PLUGIN_TAGS": pluginData.tags.map((tag) =>
 			`<a class="button-like tag">${tag}</a>` // TOOD: Add href="./tag-page" for tags...
 		).join("\n"),
 		"PLUGIN_REPORT_BUG_LINK":
-			`https://github.com/SomeRanDev/RPGMakerPlugins/issues/new?template=bug.yaml&engine=%22RPG%20Maker%20${entry.engine.toUpperCase()}%22&plugin_name=${scrapedData.filename}`,
+			`https://github.com/SomeRanDev/RPGMakerPlugins/issues/new?template=bug.yaml&engine=%22RPG%20Maker%20${entry.engine.toUpperCase()}%22&plugin_name=${pluginData.filename}`,
 		"PLUGIN_META_IMAGE": youtubeId !== null
 			? `<meta property="og:image" content="https://img.youtube.com/vi/${youtubeId}/0.jpg">`
 			: "",
@@ -420,28 +449,29 @@ function generatePrettyListCategory(
  */
 async function getPluginData(
 	entry: TextEntryPlugin,
-	scrapedData: ScrapeResult,
+	filename: string,
+	downloadUrl: string,
 ): Promise<[ParseHeadersResult, string] | null> {
 	const pluginCodeUrl =
-		`https://raw.githubusercontent.com/SomeRanDev/RPGMakerPlugins/refs/heads/master/${entry.engine}/${scrapedData.filename}`;
+		`https://raw.githubusercontent.com/SomeRanDev/RPGMakerPlugins/refs/heads/master/${entry.engine}/${filename}`;
 
 	let pluginCodeResponse = await fetch(pluginCodeUrl);
 	if (!pluginCodeResponse.ok) {
-		if (!scrapedData.downloadUrl) {
+		if (!downloadUrl) {
 			console.error(
-				`Could not fetch code for ${scrapedData.filename}.`,
+				`Could not fetch code for ${filename}.`,
 			);
 			return null;
 		}
 
 		// Reattempt using `downloadUrl`
 		console.error(
-			`Could not fetch code for ${scrapedData.filename}, attempting downloadUrl.`,
+			`Could not fetch code for ${filename}, attempting downloadUrl.`,
 		);
-		pluginCodeResponse = await fetch(scrapedData.downloadUrl);
+		pluginCodeResponse = await fetch(downloadUrl);
 		if (!pluginCodeResponse.ok) {
 			console.error(
-				`Could not fetch code for ${scrapedData.filename} using downloadUrl (${scrapedData.downloadUrl}).`,
+				`Could not fetch code for ${filename} using downloadUrl (${downloadUrl}).`,
 			);
 			return null;
 		}
@@ -451,13 +481,13 @@ async function getPluginData(
 	const plugin: ParseHeadersResult | null = parseHeaders(pluginCode);
 	if (!plugin) {
 		console.error(
-			`Could not get plugin data for ${scrapedData.filename}.\n`,
+			`Could not get plugin data for ${filename}.\n`,
 		);
 		return null;
 	}
 	if (plugin.warnings.length > 0) {
 		console.error(
-			`There were errors with parsing the the header for ${scrapedData.filename}.\n${
+			`There were errors with parsing the the header for ${filename}.\n${
 				plugin.warnings.join("\n")
 			}\n`,
 		);

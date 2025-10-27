@@ -4,7 +4,17 @@
  * This file cannot be executed alone.
  */
 
-import { ScrapeResult } from "./SinglePageScraper.ts";
+import type { ScrapeResult } from "./SinglePageScraper.ts";
+
+export interface PluginData {
+	title: string;
+	youtubeUrl: string | null;
+	date: string;
+	tags: string[];
+	categories: string[];
+	description: string;
+	filename: string;
+}
 
 export enum TextEntryKind {
 	Category,
@@ -27,6 +37,7 @@ export interface TextEntryPlugin extends TextEntry {
 	kind: TextEntryKind.Plugin;
 	url: string;
 	scrapedData: ScrapeResult | null;
+	pluginData: PluginData | undefined;
 	engine: string;
 	screenshots: string[];
 	overrideDownloadUrl: string | undefined;

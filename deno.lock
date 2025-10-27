@@ -1150,7 +1150,9 @@
   },
   "remote": {
     "https://raw.githubusercontent.com/SomeRanDev/RPGMaker-PluginHeaderParser/refs/heads/main/Main.ts": "5abf3d72b9b13899ffd375faf99912437ff9a4363a521a624a08ac7fff337f95",
-    "https://raw.githubusercontent.com/SomeRanDev/RPGMaker-PluginHeaderParser/refs/heads/main/types/PluginParam.ts": "3a431fd0515aacf3bd726596f2b9ec370a3baabee9c45bd6174f269c0571cb4f"
+    "https://raw.githubusercontent.com/SomeRanDev/RPGMaker-PluginHeaderParser/refs/heads/main/types/PluginCommand.ts": "59cea2a457101d5f3bce28c560ac96a81862a19f95fa6a8c723817438817af1b",
+    "https://raw.githubusercontent.com/SomeRanDev/RPGMaker-PluginHeaderParser/refs/heads/main/types/PluginParam.ts": "3a431fd0515aacf3bd726596f2b9ec370a3baabee9c45bd6174f269c0571cb4f",
+    "https://raw.githubusercontent.com/SomeRanDev/RPGMaker-PluginHeaderParser/refs/heads/main/types/PluginStruct.ts": "098f47e5521fa8a41db2f29573fcd80cfcc46fb938ea5d7dff794ea430843da8"
   },
   "workspace": {
     "packageJson": {

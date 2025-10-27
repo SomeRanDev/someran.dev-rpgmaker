@@ -5,20 +5,14 @@
  * deno run --node-modules-dir --allow-env --allow-net tools/transfer/SinglePageScraper.ts http://sumrndm.site/plugin-page
  */
 
-import { CheerioAPI } from "npm:cheerio@^1.1.2/slim";
+import type { CheerioAPI } from "npm:cheerio@^1.1.2/slim";
 import axios from "npm:axios@^1.12.2";
 import { load as cheerioLoad } from "npm:cheerio@^1.1.2";
+import type { PluginData } from "./OldSiteDataTypes.ts";
 
-export interface ScrapeResult {
+export interface ScrapeResult extends PluginData {
 	path: string;
-	title: string;
-	youtubeUrl: string | null;
-	date: string;
-	tags: string[];
-	categories: string[];
-	description: string;
 	downloadUrl: string;
-	filename: string;
 	extraFilenames: string[] | undefined;
 }
 
@@ -41,6 +35,7 @@ export default async function scrape(url: string): Promise<ScrapeResult> {
 		description: $(".entry-content p").eq(1).text().trim(),
 		downloadUrl,
 		filename,
+		extraFilenames: undefined,
 	};
 }
 
@@ -74,12 +69,13 @@ function scrapePlugin(
 }
 
 if (import.meta.main) {
-	if (Deno.args.length < 1) {
+	const firstArgument = Deno.args[0];
+	if (Deno.args.length < 1 || firstArgument == undefined) {
 		console.warn("Missing argument for URL to scrape. Aborting.");
 		Deno.exit(1);
 	}
 
-	scrape(Deno.args[0]).then((data) => {
+	scrape(firstArgument).then((data) => {
 		console.log(JSON.stringify(data, null, 4));
 	}).catch((err) => {
 		console.error("Error scraping: ", err);
