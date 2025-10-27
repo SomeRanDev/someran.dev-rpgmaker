@@ -66,6 +66,32 @@
     },
     {
         "kind": 1,
+        "name": "HUD Maker Multiline Text",
+        "url": null,
+        "scrapedData": null,
+        "pluginData": {
+            "title": "HUD Maker Multiline Text – MV Plugin",
+            "youtubeUrl": null,
+            "date": "Oct 27, 2025",
+            "tags": [
+                "GUI",
+                "HUD",
+                "maker",
+                "MV",
+                "plugin"
+            ],
+            "categories": [
+                "All Plugins",
+                "Tool Plugins"
+            ],
+            "description": "Adds the \"Multiline Text\" component to MV HUD Maker!",
+            "filename": "SRD_HUDMakerMultilineText.js"
+        },
+        "engine": "mv",
+        "screenshots": []
+    },
+    {
+        "kind": 1,
         "name": "Plugin Updater",
         "url": "http://sumrndm.site/plugin-updater/",
         "scrapedData": {
