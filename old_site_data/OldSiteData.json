@@ -118,6 +118,34 @@
         ]
     },
     {
+        "kind": 1,
+        "name": "Game Upgrade",
+        "url": "http://sumrndm.site/game-upgrade/",
+        "scrapedData": {
+            "path": "game-upgrade",
+            "title": "Game Upgrade – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/PCPHos3zEZY?feature=oembed",
+            "date": "June 30, 2017",
+            "tags": [
+                "MV",
+                "plugin",
+                "resize",
+                "upgrade series"
+            ],
+            "categories": [
+                "All Plugins",
+                "Special"
+            ],
+            "description": "This plugin enables more customization over the core mechanics of one’s game while also providing additional functions for future plugins.",
+            "downloadUrl": "",
+            "filename": "SRD_GameUpgrade.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/06/Game-Upgrade-SS.png"
+        ]
+    },
+    {
         "kind": 0,
         "name": "Title",
         "imageUrl": "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2016/06/Title.png",
