@@ -1712,6 +1712,63 @@
     },
     {
         "kind": 1,
+        "name": "CCEX Dynamic Actors",
+        "url": "http://sumrndm.site/ccex-dynamic-actors/",
+        "scrapedData": {
+            "path": "ccex-dynamic-actors",
+            "title": "CCEX Dynamic Actors – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/qpyB1VH7-Pw?feature=oembed",
+            "date": "July 14, 2017",
+            "tags": [
+                "MV",
+                "plugin",
+                "actors",
+                "character creator"
+            ],
+            "categories": [
+                "All Plugins",
+                "Character Creator"
+            ],
+            "description": "This plugin allows Actors to have their sprites and images dynamically change based on the Class, Weapon, or Armors that the Actor has equipped.",
+            "downloadUrl": "",
+            "filename": "SRD_CCEX_DynamicActors.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/07/CCEX-Dynamic-Actors-SS.png"
+        ]
+    },
+    {
+        "kind": 1,
+        "name": "CCEX Message Faces",
+        "url": "http://sumrndm.site/ccex-message-faces/",
+        "scrapedData": {
+            "path": "ccex-message-faces",
+            "title": "CCEX Message Faces – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/qpyB1VH7-Pw?feature=oembed",
+            "date": "July 14, 2017",
+            "tags": [
+                "MV",
+                "plugin",
+                "face",
+                "custom",
+                "character creator"
+            ],
+            "categories": [
+                "All Plugins",
+                "Character Creator"
+            ],
+            "description": "This plugin allows developers to give custom characters multiple expressions through Show Text events. They are created by changing specific pieces of the custom character’s face image.",
+            "downloadUrl": "",
+            "filename": "SRD_CCEX_MessageFaces.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/07/CCEX-Message-Faces-SS.png"
+        ]
+    },
+    {
+        "kind": 1,
         "name": "Character Creator",
         "url": "http://sumrndm.site/character-creator/",
         "scrapedData": {
@@ -1860,6 +1917,35 @@
         "engine": "mv",
         "screenshots": [
             "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2016/10/Options-Upgrade-SS.png"
+        ]
+    },
+    {
+        "kind": 1,
+        "name": "Options Creator",
+        "url": "http://sumrndm.site/options-creator/",
+        "scrapedData": {
+            "path": "options-creator",
+            "title": "Options Creator – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/0sNNX71U2Bs?feature=oembed",
+            "date": "August 25, 2017",
+            "tags": [
+                "MV",
+                "plugin",
+                "creator",
+                "customizer",
+                "options"
+            ],
+            "categories": [
+                "All Plugins",
+                "Other Plugins"
+            ],
+            "description": "This plugin provides developers with the ability to add “options” to the Options Menu.",
+            "downloadUrl": "",
+            "filename": "SRD_OptionsCreator.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/08/Option-Creator-SS.png"
         ]
     },
     {
@@ -2093,6 +2179,34 @@
         "name": "Window Plugins",
         "imageUrl": "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2016/06/Window.png",
         "description": "These are plugins that manipulate the capabilities or properties of windows."
+    },
+    {
+        "kind": 1,
+        "name": "Window Upgrade",
+        "url": "http://sumrndm.site/window-upgrade/",
+        "scrapedData": {
+            "path": "window-upgrade",
+            "title": "Window Upgrade – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/3lqH9XbX3Os?feature=oembed",
+            "date": "July 1, 2017",
+            "tags": [
+                "MV",
+                "plugin",
+                "upgrade series",
+                "window"
+            ],
+            "categories": [
+                "All Plugins",
+                "Window Plugins"
+            ],
+            "description": "Upgrades and adds various features to the existing window system within one’s game. This plugin provides additions to the window classes such as open/close callbacks, better stretch control, etc.",
+            "downloadUrl": "",
+            "filename": "SRD_WindowUpgrade.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/07/Window-Upgrade-SS.png"
+        ]
     },
     {
         "kind": 1,
@@ -2377,6 +2491,60 @@
     },
     {
         "kind": 1,
+        "name": "Quit Confirmation",
+        "url": "http://sumrndm.site/quit-confirmation/",
+        "scrapedData": {
+            "path": "quit-confirmation",
+            "title": "Quit Confirmation – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/jurSrY0HTBs?feature=oembed",
+            "date": "July 7, 2017",
+            "tags": [
+                "MV",
+                "plugin"
+            ],
+            "categories": [
+                "All Plugins",
+                "Other Plugins"
+            ],
+            "description": "This plugin provides a confirmation popup prior to the player leaving the game, confirming whether they wish to leave.",
+            "downloadUrl": "",
+            "filename": "SRD_QuitConfirmation.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/07/Quit-Confirmation-SS.png"
+        ]
+    },
+    {
+        "kind": 1,
+        "name": "Plugin Command Eval",
+        "url": "http://sumrndm.site/plugin-command-eval/",
+        "scrapedData": {
+            "path": "plugin-command-eval",
+            "title": "Plugin Command Eval – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/Tcx2WZrpyWg?feature=oembed",
+            "date": "July 21, 2017",
+            "tags": [
+                "MV",
+                "plugin",
+                "eval",
+                "plugin command"
+            ],
+            "categories": [
+                "All Plugins",
+                "Other Plugins"
+            ],
+            "description": "This plugin allows developers to have JavaScript evals in all plugin commands by using a specific format when writing them.",
+            "downloadUrl": "",
+            "filename": "SRD_PluginComEvals.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/07/Plugin-Command-Eval-SS.png"
+        ]
+    },
+    {
+        "kind": 1,
         "name": "Auto Updater",
         "url": "http://sumrndm.site/auto-updater/",
         "scrapedData": {
@@ -2432,6 +2600,35 @@
         "engine": "mv",
         "screenshots": [
             "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2017/02/Preloader-Core-SS.png"
+        ]
+    },
+    {
+        "kind": 1,
+        "name": "Translation Engine",
+        "url": "http://sumrndm.site/translation-engine/",
+        "scrapedData": {
+            "path": "translation-engine",
+            "title": "Translation Engine – MV Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/BWw1a2TskM4?feature=oembed",
+            "date": "March 12, 2018",
+            "tags": [
+                "MV",
+                "plugin",
+                "engine",
+                "tool",
+                "translation"
+            ],
+            "categories": [
+                "All Plugins",
+                "Tool Plugins"
+            ],
+            "description": "This plugin provides game developers with tools necessary to easily and effectively translate and localize all the text within their game. This is through both an in-game tool that can be used while playtesting and a powerful notetag system for translating database inputs.",
+            "downloadUrl": "",
+            "filename": "SRD_TranslationEngine.js"
+        },
+        "engine": "mv",
+        "screenshots": [
+            "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2018/03/Translation-Engine-SS.png"
         ]
     },
     {
