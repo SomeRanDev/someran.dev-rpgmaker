@@ -280,6 +280,8 @@ async function handleTextEntryPlugin(
 
 	const githubLink =
 		`https://github.com/SomeRanDev/RPGMakerPlugins/blob/master/${entry.engine}/${pluginData.filename}`;
+	const rawGithubLink =
+		`https://raw.githubusercontent.com/SomeRanDev/RPGMakerPlugins/master/${entry.engine}/${pluginData.filename}`;
 
 	let youtubeId = null;
 	if (pluginData.youtubeUrl !== null) {
@@ -293,7 +295,7 @@ async function handleTextEntryPlugin(
 	const replacements: Record<string, string> = {
 		"PLUGIN_DOWNLOAD_CODE": entry.overrideDownloadUrl
 			? `window.open("${entry.overrideDownloadUrl}")`
-			: `downloadGithubLink("${githubLink}", "${pluginData.filename}")`,
+			: `downloadGithubLink("${rawGithubLink}", "${pluginData.filename}")`,
 		"PLUGIN_NAME": entry.name,
 		"PLUGIN_RELEASE_DATE": pluginData.date,
 		"PLUGIN_ENGINE": "RPG Maker " + entry.engine.toUpperCase(),
