@@ -918,6 +918,13 @@
         "engine": "mv",
         "screenshots": [
             "https://raw.githubusercontent.com/SomeRanDev/sumrndm.site-archive/refs/heads/main/sumrndm.site/wp-content/uploads/2016/12/Battle-Status-Customizer-SS.png"
+        ],
+        "extraDownloads": [
+            {
+                "name": "SRD_BattleStatusCustomizer_Part2.js",
+                "kind": "github",
+                "url": "https://raw.githubusercontent.com/SomeRanDev/RPGMakerPlugins/master/mv/SRD_BattleStatusCustomizer_Part2.js"
+            }
         ]
     },
     {
