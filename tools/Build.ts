@@ -224,7 +224,8 @@ async function handleTextEntryPlugin(
 
 	let versionString = "1.00";
 	if (defaultData.help) {
-		const versionRegex = /^Version (\d+\.\d+)$/m;
+		let found = false;
+		const versionRegex = /^Version ((?:\d+\.\d+)|(?:\d+\.\d+\.\d+))$/m;
 		const versionRegexResult = versionRegex.exec(defaultData.help);
 		if (versionRegexResult) {
 			versionString = versionRegexResult[1];
