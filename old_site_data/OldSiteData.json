@@ -3722,6 +3722,29 @@
     },
     {
         "kind": 1,
+        "name": "Magic Variable Util",
+        "url": "",
+        "scrapedData": {
+            "path": "magic-variable-util",
+            "title": "Magic Variable Util – MV/MZ Plugin",
+            "youtubeUrl": "https://www.youtube.com/embed/1SEyQ81aaYU?feature=oembed",
+            "date": "Feb 9, 2026",
+            "tags": [
+                "MV",
+                "MZ"
+            ],
+            "categories": [
+                "All Plugins"
+            ],
+            "description": "Adds a JavaScript utility object that makes working with variables and switches in code much easier and readable. This plugin ALSO works on RPG Maker MV.",
+            "downloadUrl": "https://raw.githubusercontent.com/SumRndmDde/MZPlugins/refs/heads/main/SRD_MagicVariableUtil.js",
+            "filename": "SRD_MagicVariableUtil.js"
+        },
+        "engine": "mz",
+        "screenshots": []
+    },
+    {
+        "kind": 1,
         "name": "Window Frame Anti-Stretch",
         "url": "http://sumrndm.site/window-frame-anti-stretch-mz/",
         "scrapedData": {
