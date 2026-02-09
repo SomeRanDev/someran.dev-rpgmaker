@@ -7,6 +7,7 @@
 
 import { join } from "jsr:@std/path@1.1.2";
 import {
+	ExtraDownloadType,
 	isEntryCategory,
 	isEntryPlugin,
 	isEntryPluginDirectDownload,
@@ -256,7 +257,6 @@ async function handleTextEntryPlugin(
 		return false;
 	}
 
-	console.log(pluginData.filename);
 	category.entries.push(
 		generatePrettyListEntry(
 			pluginData.filename,
@@ -290,6 +290,19 @@ async function handleTextEntryPlugin(
 		if (result) {
 			youtubeId = result[1];
 		}
+	}
+
+	let extraDownloads = "";
+	if(entry.extraDownloads) {
+		extraDownloads = entry.extraDownloads.map(({name, kind, url}) => {
+			let downloadCode;
+			switch(kind) {
+				case ExtraDownloadType.Github: {
+					downloadCode = `downloadGithubLink("${url}", "${name}")`;
+				}
+			}
+			return `<button class="button-like download rainbow" onclick='${downloadCode}'>Download <b>${name}</b></button>`;
+		}).join("<br>");
 	}
 
 	const replacements: Record<string, string> = {
@@ -334,6 +347,7 @@ async function handleTextEntryPlugin(
 		"PLUGIN_META_IMAGE_TWITTER": youtubeId !== null
 			? `<meta property="twitter:image" content="https://img.youtube.com/vi/${youtubeId}/0.jpg">`
 			: "",
+		"PLUGIN_EXTRA_DOWNLOADS": extraDownloads
 	};
 
 	let html = pluginTemplateHtml;

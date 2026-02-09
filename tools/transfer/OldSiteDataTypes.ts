@@ -33,6 +33,10 @@ export interface TextEntryCategory extends TextEntry {
 	description: string;
 }
 
+export enum ExtraDownloadType {
+	Github = "github",
+}
+
 export interface TextEntryPlugin extends TextEntry {
 	kind: TextEntryKind.Plugin;
 	url: string;
@@ -42,6 +46,11 @@ export interface TextEntryPlugin extends TextEntry {
 	screenshots: string[];
 	overrideDownloadUrl: string | undefined;
 	requiredPlugin: string | undefined;
+	extraDownloads: {
+        name: string,
+        kind: ExtraDownloadType,
+        url: string,
+    }[] | undefined;
 }
 
 export interface TextEntryPluginDirectDownload extends TextEntry {
