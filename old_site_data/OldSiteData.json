@@ -3722,6 +3722,29 @@
     },
     {
         "kind": 1,
+        "name": "Twitch Integration",
+        "url": "",
+        "scrapedData": {
+            "path": "twitch",
+            "title": "Twitch – MV/MZ Plugin",
+            "youtubeUrl": null,
+            "date": "Sep 27, 2026",
+            "tags": [
+                "MV",
+                "MZ"
+            ],
+            "categories": [
+                "All Plugins"
+            ],
+            "description": "A plugin to add Twitch integration in your game. Have your game react to Twitch messages AND redeems (for your own stream or a streamer's stream!). This plugin ALSO works on RPG Maker MV.",
+            "downloadUrl": "https://raw.githubusercontent.com/SumRndmDde/MZPlugins/refs/heads/main/SRD_Twitch.js",
+            "filename": "SRD_Twitch.js"
+        },
+        "engine": "mz",
+        "screenshots": []
+    },
+    {
+        "kind": 1,
         "name": "Magic Variable Util",
         "url": "",
         "scrapedData": {
