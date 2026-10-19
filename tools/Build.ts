@@ -22,7 +22,6 @@ import {
 } from "https://raw.githubusercontent.com/SomeRanDev/RPGMaker-PluginHeaderParser/refs/heads/main/Main.ts";
 import hljs from "npm:highlight.js@11.11.1";
 import {
-	type PluginParamArrayType,
 	PluginParamInnerType,
 	type PluginParamStructType,
 	type PluginParamType,
@@ -365,6 +364,13 @@ async function handleTextEntryPlugin(
 }
 
 function paramTypeToHumanString(type: PluginParamType): string {
+	if(type.arrayDepth > 0) {
+		return "Array of ".repeat(type.arrayDepth) + innerParamTypeToHumanString(type);
+	}
+	return innerParamTypeToHumanString(type);
+}
+
+function innerParamTypeToHumanString(type: PluginParamType): string {
 	switch (type.type) {
 		case PluginParamInnerType.String:
 			return "Text Input";
@@ -408,9 +414,6 @@ function paramTypeToHumanString(type: PluginParamType): string {
 			return "Switch";
 		case PluginParamInnerType.Variable:
 			return "Variable";
-		case PluginParamInnerType.Array:
-			return "Array of " +
-				paramTypeToHumanString((type as PluginParamArrayType).subtype);
 		case PluginParamInnerType.Struct:
 			return (type as PluginParamStructType).structName + " Struct";
 	}
