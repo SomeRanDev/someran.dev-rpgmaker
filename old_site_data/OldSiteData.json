@@ -3707,7 +3707,7 @@
             "categories": [
                 "All Plugins"
             ],
-            "description": "More Information",
+            "description": "A plugin for configuring a HUD in RPG Maker using a custom HUD editing software. The normal version here is free, but you can also download the <a href=\"https://srdude.itch.io/hud-maker-ultra-pro\">Pro version on itch.io</a> that has additional features!",
             "downloadUrl": "https://raw.githubusercontent.com/SumRndmDde/HUDMakerUltra/refs/heads/main/SRD_HUDMakerUltra.js",
             "filename": "SRD_HUDMakerUltra.js"
         },
