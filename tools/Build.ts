@@ -279,7 +279,7 @@ async function handleTextEntryPlugin(
 		hljs.highlight(pluginCode.trim(), { language: "js" })
 			.value;
 
-	const githubLink =
+	const githubLink = entry.overrideGithubUrl ??
 		`https://github.com/SomeRanDev/RPGMakerPlugins/blob/master/${entry.engine}/${pluginData.filename}`;
 	const rawGithubLink =
 		`https://raw.githubusercontent.com/SomeRanDev/RPGMakerPlugins/master/${entry.engine}/${pluginData.filename}`;

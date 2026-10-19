@@ -45,6 +45,7 @@ export interface TextEntryPlugin extends TextEntry {
 	engine: string;
 	screenshots: string[];
 	overrideDownloadUrl: string | undefined;
+	overrideGithubUrl: string | undefined;
 	requiredPlugin: string | undefined;
 	extraDownloads: {
         name: string,
